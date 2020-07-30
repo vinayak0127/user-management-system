@@ -1,0 +1,74 @@
+<%- include("partials/header") %>
+
+  <div class="main-container">
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">User Management Sytem</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#" role="button">
+            Welcome 
+              <%=user.username%>
+             !
+          </a></li>
+          <li><a href="/logout" role="button">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <ul class="sidenav" id="mobile-demo">
+      <li><a href="#" role="button">        
+        Welcome 
+          <%=user.username%>
+         !
+      </a></li>
+      <li><a href="/logout" role="button">Logout</a></li>
+    </ul>
+
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
+          <div class="card darken-1 hoverable">
+            <div class="card-content black-text">
+              <div class="table-head">
+                <span class="card-title">Employee Information</span>
+              <a class="waves-effect waves-light-purple waves-ripple btn add-user-btn" href="/add_user" role="button" >Add User</a>
+              </div>
+              <table class="highlight centered responsive-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Number</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                 
+                  <tr>
+                    <%for (let i = 0; i < user.data.length; i++) {%>
+                      <%const name=user.data[i].name%>
+                      <%const email=user.data[i].emailAdd%>
+                      <%const phone=user.data[i].phone%>
+                    <td><%=name%></td>
+                    <td><%=email%></td>
+                    <td><%=phone%></td>
+                    <td>  
+                      <a href="/update/<%=user.data[i].id%>" class="waves-effect waves-light-purple btn-flat">Edit<i class="material-icons left">create</i></a><span>&#124;</span>
+                      <form style="display: inline-block;" action="/delete" method="POST">
+                      <button  class="waves-effect waves-light-purple btn-flat" name="del" value="<%=user.data[i].id%>" type="submit">Delete<i class="material-icons left">delete</i></button>
+                    </form>
+                    </td>
+                  </tr>
+                  <%}%>
+                  
+                </tbody>
+            </table>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,66 @@
+<%- include("partials/header") %>
+
+<div class="main-container">
+  <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo">User Management Sytem</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/database" role="button">Home</a></li>
+          <li><a href="/logout" role="button">Logout</a></li>
+        </ul>
+      </div>
+  </nav>
+    
+  <ul class="sidenav" id="mobile-demo">
+      <li><a href="/database" role="button">Home</a></li>
+      <li><a href="/logout" role="button">Logout</a></li>
+  </ul>
+
+  <main>
+    <div class="add-user-container">
+      <div class="row">
+        <div class="col">
+          <div class="card darken-1 hoverable">
+            <div class="card-content black-text">
+              <span class="card-title center-align">Add User Details</span>
+                <div class="row">
+                  <form class="col" action="/add_user" method="POST">
+                    <div class="row">
+                      <div class="input-field col s12 label-color-alternate">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="icon_prefix" type="text" class="validate"  name="fname">
+                        <label for="icon_prefix">First Name</label>
+                      </div>
+      
+                      <div class="input-field col s12 label-color-alternate">
+                        <i class="material-icons prefix">mail</i>
+                        <input id="icon_mail" type="email" class="validate" name="emailadd">
+                        <label for="icon_mail">Email</label>
+                      </div>
+      
+                      <div class="input-field col s12 label-color-alternate">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="icon_telephone" type="tel" class="validate" name="phone">
+                        <label for="icon_telephone">Telephone</label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col s12 center-align">
+                        <button class="waves-effect waves-light-purple waves-ripple btn submit-btn" type="submit">Submit
+                        </button>
+                        </div>
+                    </div>
+                  </form>
+                </div>
+
+
+            </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+  <%- include("partials/footer") %>
